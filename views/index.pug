@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  script.
+    document.cookie = "s=1; SameSite=None; Secure";
+    const msg = /s=1/.test(document.cookie) ? "CookiesSupported" : "CookiesUnsupported";
+    window.parent.postMessage(msg, "*");
