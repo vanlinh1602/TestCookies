@@ -17,7 +17,7 @@ app.use(helmet({
     directives: {
       defaultSrc: ["'self'"],
       frameAncestors: ['https://qa.elibot.xbot.com.vn/'],
-      scriptSrc: ['https://qa.elibot.xbot.com.vn/'],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", 'https://qa.elibot.xbot.com.vn/'],
     },
   },
   frameguard: { action: 'deny' },
