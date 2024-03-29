@@ -5,5 +5,6 @@ block content
   p Welcome to #{title}
   script.
     document.cookie = "s=1; SameSite=None; Secure";
+    console.log("Cookies set");
     const msg = /s=1/.test(document.cookie) ? "CookiesSupported" : "CookiesUnsupported";
     window.parent.postMessage(msg, "*");
