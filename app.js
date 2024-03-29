@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-// const helmet = require('helmet');
+const helmet = require('helmet');
 
 
 
@@ -12,16 +12,16 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-// app.use(helmet({
-//   contentSecurityPolicy: {
-//     directives: {
-//       defaultSrc: ["'self'"],
-//       frameAncestors: ['https://qa.elibot.xbot.com.vn/'],
-//     },
-//   },
-//   frameguard: { action: 'deny' },
-// }));
-// app.use(helmet.xssFilter());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      frameAncestors: ['https://qa.elibot.xbot.com.vn/'],
+    },
+  },
+  frameguard: { action: 'deny' },
+}));
+app.use(helmet.xssFilter());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
